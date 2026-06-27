@@ -17,3 +17,7 @@
   transform: translateY(-3px);
 }
 
+.comment-note {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.85rem;
+}

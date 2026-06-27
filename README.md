@@ -32,16 +32,18 @@ C:\Users\admin\.conda\envs\py39\python.exe -m mkdocs serve
 
 `https://delayyyyyyy.github.io/`
 
-## 4. 开启评论与点赞
+## 4. 评论与点赞
 
-Giscus 免费使用 GitHub Discussions 保存评论，访客需使用 GitHub 账号登录。
+本站已经配置 Giscus，使用 GitHub Discussions 保存评论，访客需使用 GitHub
+账号登录。
 
-1. 打开仓库 **Settings → General → Features**，启用 **Discussions**。
-2. 访问 <https://github.com/apps/giscus>，把 Giscus 安装到该仓库。
-3. 访问 <https://giscus.app/zh-CN>，填写仓库地址并生成配置代码。
-4. 将生成的 `<script>` 粘贴到需要评论的学习记录底部。
+仓库的 Discussions 已启用。还需要访问
+<https://github.com/apps/giscus>，把 Giscus GitHub App 安装到
+`delayyyyyyy.github.io` 仓库。
 
-Giscus 评论区中的表情反应可作为点赞。若以后需要“无需 GitHub 登录的独立点赞按钮”，可以再接入 Supabase。
+在文章开头的 YAML 区域加入 `comments: true` 即可显示评论区。Giscus
+评论区中的表情反应可作为点赞。若以后需要“无需 GitHub 登录的独立点赞按钮”，
+可以再接入 Supabase。
 
 ## 5. 发布新记录
 
