@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+<defs>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+    <path d="M0,0 L0,6 L9,3 z" fill="#374151" />
+  </marker>
+</defs>
+
+<style>
+  .title { font: 700 26px 'Arial', 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; fill:#1f2937; }
+  .subtitle { font: 500 16px 'Arial', 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; fill:#4b5563; }
+  .label { font: 600 17px 'Arial', 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; fill:#111827; }
+  .small { font: 500 14px 'Arial', 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; fill:#374151; }
+  .tiny { font: 500 12px 'Arial', 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; fill:#4b5563; }
+  .math { font: 600 15px 'Cambria Math', 'Times New Roman', serif; fill:#111827; }
+  .box-blue { fill:#e8f1ff; stroke:#4f83d1; stroke-width:1.6; rx:14; }
+  .box-orange { fill:#fff0e3; stroke:#f2a65a; stroke-width:1.6; rx:14; }
+  .box-green { fill:#edf8e9; stroke:#70ad65; stroke-width:1.6; rx:14; }
+  .box-purple { fill:#f2eafe; stroke:#8b5cf6; stroke-width:1.6; rx:14; }
+  .box-gray { fill:#f8fafc; stroke:#cbd5e1; stroke-width:1.4; rx:14; }
+  .formula { fill:#ffffff; stroke:#cbd5e1; stroke-width:1.4; rx:14; }
+  .arrow { stroke:#374151; stroke-width:1.8; fill:none; marker-end:url(#arrow); }
+  .arrow-dash { stroke:#6b7280; stroke-width:1.6; fill:none; stroke-dasharray:5 5; marker-end:url(#arrow); }
+  .weight { font: 700 13px 'Arial', sans-serif; fill:#b45309; }
+</style>
+
+<text x="40" y="45" class="title" text-anchor="start">图 5：从回报递归到 Bellman 方程的推导路线</text>
+<text x="40" y="75" class="subtitle" text-anchor="start">核心就是 U_t = R_t + γU_{t+1}，然后把随机变量的条件期望展开成概率加权求和。</text>
+<rect x="60" y="140" width="250" height="120" class="box-blue" />
+<text x="185" y="178" class="label" text-anchor="middle">定义回报</text>
+<text x="185" y="218" class="math" text-anchor="middle">U_t = R_t + γU_{t+1}</text>
+<rect x="330" y="140" width="250" height="120" class="box-blue" />
+<text x="455" y="178" class="label" text-anchor="middle">定义 V</text>
+<text x="455" y="218" class="math" text-anchor="middle">Vπ(s)=E[U_t | S_t=s]</text>
+<rect x="610" y="140" width="250" height="120" class="box-purple" />
+<text x="735" y="178" class="label" text-anchor="middle">代入递归</text>
+<text x="735" y="218" class="math" text-anchor="middle">E[R_t + γU_{t+1} | S_t=s]</text>
+<rect x="910" y="140" width="250" height="120" class="box-green" />
+<text x="1035" y="178" class="label" text-anchor="middle">Markov + 条件期望</text>
+<text x="1035" y="218" class="math" text-anchor="middle">E[U_{t+1}|S_{t+1}=s′]=Vπ(s′)</text>
+<rect x="210" y="380" width="250" height="120" class="box-orange" />
+<text x="335" y="418" class="label" text-anchor="middle">展开动作随机性</text>
+<text x="335" y="458" class="math" text-anchor="middle">Σ_a π(a|s)( · )</text>
+<rect x="510" y="380" width="250" height="120" class="box-green" />
+<text x="635" y="418" class="label" text-anchor="middle">展开环境随机性</text>
+<text x="635" y="458" class="math" text-anchor="middle">Σ_{s′}p(s′|s,a)Vπ(s′)</text>
+<rect x="810" y="380" width="250" height="120" class="box-blue" />
+<text x="935" y="418" class="label" text-anchor="middle">得到 Bellman 期望方程</text>
+<text x="935" y="452" class="math" text-anchor="middle">
+  <tspan x="935" dy="0">Vπ(s)=Σ_aπ(a|s)[r(s,a)+γΣ_{s′}p(s′|s,a)Vπ(s′)]</tspan>
+  <tspan x="935" dy="23"></tspan>
+</text>
+<line x1="310" y1="200" x2="330" y2="200" class="arrow" />
+<line x1="580" y1="200" x2="610" y2="200" class="arrow" />
+<line x1="860" y1="200" x2="910" y2="200" class="arrow" />
+<line x1="1035" y1="260" x2="335" y2="380" class="arrow" />
+<line x1="460" y1="440" x2="510" y2="440" class="arrow" />
+<line x1="760" y1="440" x2="810" y2="440" class="arrow" />
+</svg>
