@@ -34,6 +34,11 @@ nav:
   - 学习记录:
       - 总览: journal/index.md
       - 第一篇记录: journal/first-note.md
+  - agenticRL:
+      - chap1: agenticRL/url01_dataloader-to-batch-explained.md
+      - chap2: agenticRL/url02_agent-rollout-deep-dive.md
+      - chap3: agenticRL/url03_reward-computation-deep-dive.md
+      - chap4: agenticRL/url04_old-log-prob-deep-dive.md
   - 项目: projects.md
   - 写作指南: guides/writing.md
   - 关于我: about.md
