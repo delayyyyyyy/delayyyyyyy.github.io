@@ -1,0 +1,19 @@
+:root {
+  --md-primary-fg-color: #5b5bd6;
+}
+
+.md-typeset h1 {
+  font-weight: 750;
+  letter-spacing: -0.03em;
+}
+
+.md-typeset .grid.cards > ul > li {
+  border-radius: 16px;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.md-typeset .grid.cards > ul > li:hover {
+  box-shadow: 0 10px 30px rgb(50 50 93 / 12%);
+  transform: translateY(-3px);
+}
+
