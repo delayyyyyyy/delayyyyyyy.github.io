@@ -33,9 +33,11 @@
 ### 1. 经典推导与 Log-Derivative Trick
 1.  **展开状态价值：** $\nabla_\theta V_\pi(s) \approx \sum_{a \in A} (\nabla_\theta \pi(a|s;\theta) \cdot Q_\pi(s,a))$
 2.  **引入对数导数技巧 (Log trick)：** 利用 $\nabla f(x) = f(x) \cdot \nabla \ln f(x)$，对上式进行变形：
-    $$ \sum_{a \in A} \Big( \pi(a|s;\theta) \cdot \nabla_\theta \ln \pi(a|s;\theta) \Big) \cdot Q_\pi(s,a) $$
+
+$\displaystyle \sum_{a \in A} \Big( \pi(a|s;\theta) \cdot \nabla_\theta \ln \pi(a|s;\theta) \Big) \cdot Q_\pi(s,a)$
 3.  **转化为期望：** 概率乘以数值求和等于期望 $\mathbb{E}$，于是我们得到最终公式：
-    $$ \nabla_\theta J(\theta) = \mathbb{E}_{A \sim \pi(\cdot|s;\theta)} [ \nabla_\theta \ln \pi(A|s;\theta) \cdot Q_\pi(s,A) ] $$
+
+$\displaystyle \nabla_\theta J(\theta) = \mathbb{E}_{A \sim \pi(\cdot|s;\theta)} [ \nabla_\theta \ln \pi(A|s;\theta) \cdot Q_\pi(s,A) ]$
 
 ### 2. Insight：为什么要转化成期望？(解决连续空间死局)
 如果不转化，公式是 $\sum_a (\dots)$。这意味着为了更新一次参数，你必须遍历**所有可能的动作**。
@@ -56,6 +58,7 @@
 ## 第三层：理论篇 —— 被忽略的 $\nabla_\theta Q_\pi$ 与伟大的“策略梯度定理”
 
 在第一步展开求导时，根据乘法求导 $(uv)' = u'v + uv'$，严格来说应该是：
+
 $$ \nabla_\theta (\pi \cdot Q_\pi) = \nabla_\theta \pi(a|s;\theta) \cdot Q_\pi(s,a) + \mathbf{\pi(a|s;\theta) \cdot \nabla_\theta Q_\pi(s,a)} $$
 
 **疑问：为什么实际推导中把后面那一项（$Q$ 对 $\theta$ 的导数）忽略了？**
@@ -79,9 +82,12 @@ $$ \nabla_\theta (\pi \cdot Q_\pi) = \nabla_\theta \pi(a|s;\theta) \cdot Q_\pi(s
 利用对数性质化简：$\ln \pi(A) = \ln \left( \frac{e^{Z_A}}{\sum_k e^{Z_k}} \right) = Z_A - \ln\left(\sum_k e^{Z_k}\right)$
 
 *   **对“实际执行的动作”得分 $Z_A$ 求导：**
-    $$ \frac{\partial \ln \pi(A)}{\partial Z_A} = 1 - \frac{e^{Z_A}}{\sum_k e^{Z_k}} = \mathbf{1 - \pi(A)} $$
+
+$\displaystyle \frac{\partial \ln \pi(A)}{\partial Z_A} = 1 - \frac{e^{Z_A}}{\sum_k e^{Z_k}} = \mathbf{1 - \pi(A)}$
+
 *   **对“没执行的动作”得分 $Z_B$ 求导：**
-    $$ \frac{\partial \ln \pi(A)}{\partial Z_B} = 0 - \frac{e^{Z_B}}{\sum_k e^{Z_k}} = \mathbf{-\pi(B)} $$
+
+$\displaystyle \frac{\partial \ln \pi(A)}{\partial Z_B} = 0 - \frac{e^{Z_B}}{\sum_k e^{Z_k}} = \mathbf{-\pi(B)}$
 
 ### 2. 梯度背后的工程智慧 (Insight)
 这组数学推导结果不仅优美，更完美契合了优化的工程需求：
