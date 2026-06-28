@@ -42,6 +42,7 @@ nav:
   - rl:
       - Bellman Expectation Equation: rl/bellman_expectation_derivation_with_svg.md
       - Policy Gradient Derivation: rl/policy_gradient_derivation_with_svg.md
+      - Policy Gradient 全解析: rl/policy_gradient.md
   - 项目: projects.md
   - 写作指南: guides/writing.md
   - 科研英语: guides/research-english.md
