@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620">
+  <rect width="1200" height="620" fill="#ffffff"/>
+  <text x="40" y="50" font-size="34" font-family="Arial" font-weight="700" fill="#111827">关键技巧：log-derivative trick 与状态级公式</text>
+
+  <rect x="50" y="100" rx="22" ry="22" width="500" height="180" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="75" y="145" font-size="30" font-family="Arial" font-weight="700" fill="#111827">A. log-derivative trick</text>
+  <text x="75" y="200" font-size="38" font-family="Georgia" fill="#111827">∇ log f(x) = ∇f(x) / f(x)</text>
+  <text x="75" y="242" font-size="30" font-family="Georgia" fill="#111827">⇒ ∇f(x) = f(x) ∇ log f(x)</text>
+  <text x="75" y="270" font-size="22" font-family="Arial" fill="#475569">这一步能把“概率分布的导数”变成“可采样的期望”</text>
+
+  <rect x="650" y="100" rx="22" ry="22" width="500" height="180" fill="#eef6ff" stroke="#bfdbfe"/>
+  <text x="675" y="145" font-size="30" font-family="Arial" font-weight="700" fill="#1d4ed8">B. 从概率加权和到期望</text>
+  <text x="675" y="195" font-size="28" font-family="Georgia" fill="#111827">Σ<tspan baseline-shift="sub" font-size="18">a</tspan> π(a|s;θ) [∇ log π(a|s;θ)] Q<tspan baseline-shift="sub" font-size="18">π</tspan>(s,a)</text>
+  <text x="675" y="235" font-size="28" font-family="Georgia" fill="#111827">= E<tspan baseline-shift="sub" font-size="18">A~π(·|s;θ)</tspan>[ ∇ log π(A|s;θ) Q<tspan baseline-shift="sub" font-size="18">π</tspan>(s,A) ]</text>
+  <text x="675" y="266" font-size="22" font-family="Arial" fill="#475569">因为“对所有动作按 π 加权求和”就是期望定义</text>
+
+  <rect x="50" y="330" rx="22" ry="22" width="1100" height="220" fill="#fff7ed" stroke="#fdba74"/>
+  <text x="75" y="375" font-size="30" font-family="Arial" font-weight="700" fill="#c2410c">C. 课件右侧那条状态级推导，究竟在做什么？</text>
+  <text x="75" y="430" font-size="30" font-family="Georgia" fill="#111827">V<tspan baseline-shift="sub" font-size="18">π</tspan>(s) = Σ<tspan baseline-shift="sub" font-size="18">a</tspan> π(a|s;θ) Q<tspan baseline-shift="sub" font-size="18">π</tspan>(s,a)</text>
+  <text x="75" y="475" font-size="30" font-family="Georgia" fill="#111827">∇V<tspan baseline-shift="sub" font-size="18">π</tspan>(s) = Σ<tspan baseline-shift="sub" font-size="18">a</tspan> [∇π(a|s;θ)] Q<tspan baseline-shift="sub" font-size="18">π</tspan>(s,a) + Σ<tspan baseline-shift="sub" font-size="18">a</tspan> π(a|s;θ) ∇Q<tspan baseline-shift="sub" font-size="18">π</tspan>(s,a)</text>
+  <text x="75" y="515" font-size="22" font-family="Arial" fill="#475569">课件上“ignore one item”是暂时忽略第二项，只为了引出 log π 的写法。</text>
+  <text x="75" y="542" font-size="22" font-family="Arial" fill="#475569">严格证明里不能直接忽略它，而是通过 policy gradient theorem 把这部分整体吸收到状态访问分布 dπ 中。</text>
+</svg>

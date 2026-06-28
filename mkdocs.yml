@@ -41,6 +41,7 @@ nav:
       - chap4: agenticRL/url04_old-log-prob-deep-dive.md
   - rl:
       - Bellman Expectation Equation: rl/bellman_expectation_derivation_with_svg.md
+      - Policy Gradient Derivation: rl/policy_gradient_derivation_with_svg.md
   - 项目: projects.md
   - 写作指南: guides/writing.md
   - 科研英语: guides/research-english.md

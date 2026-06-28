@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520">
+  <rect width="1200" height="520" fill="#ffffff"/>
+  <text x="40" y="52" font-size="34" font-family="Arial" font-weight="700" fill="#111827">Policy Gradient 在 LLM 里的对应关系</text>
+
+  <rect x="55" y="100" rx="18" ry="18" width="500" height="340" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="305" y="142" text-anchor="middle" font-size="28" font-family="Arial" font-weight="700" fill="#111827">传统 RL</text>
+  <line x1="85" y1="165" x2="525" y2="165" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="95" y="210" font-size="26" font-family="Arial" fill="#111827">状态 s</text>
+  <text x="245" y="210" font-size="24" font-family="Arial" fill="#475569">→ 当前环境状态</text>
+  <text x="95" y="262" font-size="26" font-family="Arial" fill="#111827">动作 a</text>
+  <text x="245" y="262" font-size="24" font-family="Arial" fill="#475569">→ 选择一个动作</text>
+  <text x="95" y="314" font-size="26" font-family="Arial" fill="#111827">策略 π(a|s;θ)</text>
+  <text x="245" y="314" font-size="24" font-family="Arial" fill="#475569">→ 动作概率分布</text>
+  <text x="95" y="366" font-size="26" font-family="Arial" fill="#111827">奖励 r / 回报 G</text>
+  <text x="245" y="366" font-size="24" font-family="Arial" fill="#475569">→ 轨迹好不好</text>
+  <text x="95" y="418" font-size="26" font-family="Arial" fill="#111827">更新</text>
+  <text x="245" y="418" font-size="24" font-family="Arial" fill="#475569">→ 提高好动作概率，压低坏动作概率</text>
+
+  <rect x="645" y="100" rx="18" ry="18" width="500" height="340" fill="#eef6ff" stroke="#93c5fd"/>
+  <text x="895" y="142" text-anchor="middle" font-size="28" font-family="Arial" font-weight="700" fill="#1d4ed8">LLM RL / RLHF / RLAIF</text>
+  <line x1="675" y1="165" x2="1115" y2="165" stroke="#bfdbfe" stroke-width="2"/>
+  <text x="685" y="210" font-size="26" font-family="Arial" fill="#111827">状态 s</text>
+  <text x="835" y="210" font-size="24" font-family="Arial" fill="#475569">→ prompt + 已生成 token</text>
+  <text x="685" y="262" font-size="26" font-family="Arial" fill="#111827">动作 a</text>
+  <text x="835" y="262" font-size="24" font-family="Arial" fill="#475569">→ 下一个 token / tool action</text>
+  <text x="685" y="314" font-size="26" font-family="Arial" fill="#111827">策略 π(a|s;θ)</text>
+  <text x="835" y="314" font-size="24" font-family="Arial" fill="#475569">→ next-token distribution</text>
+  <text x="685" y="366" font-size="26" font-family="Arial" fill="#111827">奖励 r / 回报 G</text>
+  <text x="835" y="366" font-size="24" font-family="Arial" fill="#475569">→ RM / verifier / task reward</text>
+  <text x="685" y="418" font-size="26" font-family="Arial" fill="#111827">更新</text>
+  <text x="835" y="418" font-size="24" font-family="Arial" fill="#475569">→ 增大优质 token 轨迹的 logprob</text>
+</svg>
